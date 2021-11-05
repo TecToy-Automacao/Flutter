@@ -46,6 +46,9 @@ public class TectoysunmisdkPlugin implements FlutterPlugin, MethodCallHandler {
   private final String printStyleInvert = "printStyleInvert";
   private final String printStyleStrikethRough = "printStyleStrikethRough";
   private final String printStyleReset = "printStyleReset";
+  private final String printonelabel = "printonelabel";
+  private final String printmultilabel = "printmultilabel";
+
 
   // Impressão do TEXTO
   private final String printText = "printText";
@@ -109,6 +112,12 @@ public class TectoysunmisdkPlugin implements FlutterPlugin, MethodCallHandler {
 
 
     switch (call.method){
+      case printonelabel:
+        TectoySunmiPrint.getInstance().printOneLabel();
+        break;
+      case printmultilabel:
+        TectoySunmiPrint.getInstance().printMultiLabel(5);
+        break;
       case setInitiServiceTecToySunmiSDK:
         TectoySunmiPrint.getInstance().initSunmiPrinterService(contextAplication);
         break;

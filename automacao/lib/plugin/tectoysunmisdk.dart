@@ -140,6 +140,15 @@ class Tectoysunmisdk {
     await _channel.invokeMethod('printBitmap', textWithSize);
   }
 
+  // Efetua impressão de etiqueta
+  static Future<void> printonelabel() async {
+    await _channel.invokeMethod('printonelabel');
+  }
+
+  static Future<void> printmultilabel() async {
+    await _channel.invokeMethod('printmultilabel');
+  }
+
   static Future<void> printTextoCompleto(
       String text, int size, String charset, bool bold, bool underline) async {
     setInitPrint();

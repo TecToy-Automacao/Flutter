@@ -38,4 +38,6 @@ android {
 dependencies {
     implementation files('libs/core-3.3.0.jar')
     implementation 'com.sunmi:printerlibrary:1.0.13'
+
+
 }

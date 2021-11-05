@@ -1,10 +1,11 @@
-import 'dart:ffi';
+//import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:tectoyexemplo/Utils/constants.dart';
 import 'package:tectoyexemplo/Utils/funcoes.dart';
 import 'package:tectoyexemplo/Widgets/appbar.dart';
 import 'package:tectoyexemplo/Widgets/card_item.dart';
+import 'package:tectoyexemplo/plugin/lampsdk.dart';
 import 'package:tectoyexemplo/plugin/tectoysunmisdk.dart';
 
 void main() {
@@ -44,6 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // String local = await TectoySunmiPrintBluetooth.platformVersion;
     String? text =
         await Tectoysunmisdk.initiServiceTecToySunmiSDK().then((value) => null);
+    await Lampsdk.init();
     print(text);
   }
 

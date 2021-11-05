@@ -1,6 +1,11 @@
 import 'package:tectoyexemplo/pages/LeituraBarCode.dart';
 import 'package:tectoyexemplo/pages/barcode.dart';
+import 'package:tectoyexemplo/pages/cancelar_paygo.dart';
 import 'package:tectoyexemplo/pages/imagem.dart';
+import 'package:tectoyexemplo/pages/klamp.dart';
+import 'package:tectoyexemplo/pages/label.dart';
+import 'package:tectoyexemplo/plugin/paygosdk.dart';
+import 'package:tectoyexemplo/pages/paygo_activity.dart';
 import 'package:tectoyexemplo/pages/qrcode.dart';
 import 'package:tectoyexemplo/pages/tabela.dart';
 import 'package:tectoyexemplo/pages/test_complet.dart';
@@ -70,6 +75,20 @@ List<Map> funcoes = [
       title: "Teste Completo",
     )
   },
+  {
+    "img": "assets/image/function_payment.png",
+    "name": "Paygo",
+    "page": Paygo_activity(
+      title: "PayGo",
+    )
+  },
+  {
+    "img": "assets/image/function_led.png",
+    "name": "Lamp",
+    "page": Klamp(
+      title: "Lamp",
+    )
+  },
   // {
   //   "img": "assets/image/function_lcd.png",
   //   "name": "Lcd",
@@ -91,11 +110,11 @@ List<Map> funcoes = [
   //     title: "Teste Completo",
   //   )
   // },
-  // {
-  //   "img": "assets/image/function_label.png",
-  //   "name": "Teste de Etiqueta",
-  //   "page": TextCompleto(
-  //     title: "Teste Completo",
-  //   )
-  // },
+  {
+    "img": "assets/image/function_label.png",
+    "name": "Teste de Etiqueta",
+    "page": Label(
+      title: "Teste de Etiqueta",
+    )
+  },
 ];
