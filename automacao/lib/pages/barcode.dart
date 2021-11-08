@@ -22,6 +22,7 @@ class _BarCodeState extends State<BarCode> {
   String barcode_posicao = "";
   String barcode_altura = "";
   String barcode_largura = "";
+  String etiqueta = "";
 
   @override
   void initState() {
@@ -31,6 +32,7 @@ class _BarCodeState extends State<BarCode> {
     this.barcode_posicao = "Acima do código de barras";
     this.barcode_altura = "162";
     this.barcode_largura = "2";
+    this.etiqueta = "Não";
     super.initState();
   }
 
@@ -65,7 +67,7 @@ class _BarCodeState extends State<BarCode> {
                   },
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 ItemMenu(
                   text_menu: "Modelos de BarCode",
@@ -85,7 +87,7 @@ class _BarCodeState extends State<BarCode> {
                   },
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 ItemMenu(
                   text_menu: "HRI posição",
@@ -110,7 +112,7 @@ class _BarCodeState extends State<BarCode> {
                   },
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 ItemMenu(
                   text_menu: "Altura",
@@ -131,7 +133,7 @@ class _BarCodeState extends State<BarCode> {
                   },
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 ItemMenu(
                   text_menu: "Largura",
@@ -150,23 +152,31 @@ class _BarCodeState extends State<BarCode> {
                         context, "barcode_largura");
                   },
                 ),
+                SizedBox(
+                  height: 10,
+                ),
+                ItemMenu(
+                  text_menu: "Etiqueta",
+                  text_menu_cor: Constants.white,
+                  text_menu_size: 20,
+                  text_opcao: this.etiqueta,
+                  text_opcao_cor: Constants.gray,
+                  text_opcao_size: 15,
+                  icon: Icons.arrow_forward_ios_sharp,
+                  icon_cor: Constants.white,
+                  icon_size: 30,
+                  onTap: () {
+                    print("Aqui");
+                    List listaetiqueta = ['Não', 'Sim'];
+                    _displayListInputDialog("Imprimir Etiqueta", "hintText",
+                        listaetiqueta, context, "etiqueta");
+                  },
+                ),
               ],
             ),
             SizedBox(height: 10.0),
             Image.asset("assets/image/logo_tectoy_sunmi.png"),
             SizedBox(height: 10.0),
-            /*  ButtonWidget(
-                text: "Imprimir",
-                text_size: 18,
-                text_color: Constants.white,
-                background: Constants.gray,
-                onTap: () {
-                  print("object");
-                  int num1 = int.parse(barcode_altura);
-                  int num2 = int.parse(barcode_largura);
-                  Tectoysunmisdk.printBar(text_barcode, barcode_modelo, num1,
-                      num2, barcode_posicao);
-                }), */
             Container(
               color: Constants.red,
               height: 50.0,
@@ -176,12 +186,23 @@ class _BarCodeState extends State<BarCode> {
                   style: TextButton.styleFrom(primary: Constants.white),
                   onPressed: () {
                     print(barcode_posicao);
-                    printBar(
-                        text_barcode,
-                        barcode_modelo,
-                        int.parse(barcode_altura),
-                        int.parse(barcode_largura),
-                        barcode_posicao.toString());
+                    if (etiqueta == "Sim") {
+                      DateTime now = new DateTime.now();
+                      DateTime dateToday = DateTime(DateTime.now().year,
+                          DateTime.now().month, DateTime.now().day);
+                      Tectoysunmisdk.printStyleBold(true);
+                      Tectoysunmisdk.printonelabel(
+                          "Mercadoria:     " + text_barcode,
+                          "Data de Validade: " + dateToday.toString(),
+                          text_barcode);
+                    } else if (etiqueta == "Não") {
+                      printBar(
+                          text_barcode,
+                          barcode_modelo,
+                          int.parse(barcode_altura),
+                          int.parse(barcode_largura),
+                          barcode_posicao.toString());
+                    }
                   }),
             ),
           ],
@@ -293,6 +314,8 @@ class _BarCodeState extends State<BarCode> {
                     barcode_altura = oldText[_id];
                   } else if (variavel == "barcode_largura") {
                     barcode_largura = oldText[_id];
+                  } else if (variavel == "etiqueta") {
+                    etiqueta = oldText[_id];
                   }
                   Navigator.pop(context);
                 },

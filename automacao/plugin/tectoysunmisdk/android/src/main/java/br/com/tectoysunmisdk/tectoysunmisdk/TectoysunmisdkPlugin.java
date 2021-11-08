@@ -85,6 +85,7 @@ public class TectoysunmisdkPlugin implements FlutterPlugin, MethodCallHandler {
 
   // Imprime printBitmap
   private final String printBitmap = "printBitmap";
+  private final String scanner = "scanner";
 
   // Variaveis comuns
   private String text = "";
@@ -94,6 +95,9 @@ public class TectoysunmisdkPlugin implements FlutterPlugin, MethodCallHandler {
   private int height = 0;
   private int width = 0;
   private int textposition = 0;
+  private String texto = "";
+  private String data = "";
+  private String code = "";
 
 
   @Override
@@ -112,11 +116,19 @@ public class TectoysunmisdkPlugin implements FlutterPlugin, MethodCallHandler {
 
 
     switch (call.method){
+      case scanner:
+        break;
       case printonelabel:
-        TectoySunmiPrint.getInstance().printOneLabel();
+        texto = call.argument("texto");
+        data = call.argument("data");
+        code = call.argument("code");
+        TectoySunmiPrint.getInstance().printOneLabel(texto, data, code);
         break;
       case printmultilabel:
-        TectoySunmiPrint.getInstance().printMultiLabel(5);
+        texto = call.argument("texto");
+        data = call.argument("data");
+        code = call.argument("code");
+        TectoySunmiPrint.getInstance().printMultiLabel(5, texto, data, code);
         break;
       case setInitiServiceTecToySunmiSDK:
         TectoySunmiPrint.getInstance().initSunmiPrinterService(contextAplication);

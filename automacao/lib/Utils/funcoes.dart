@@ -4,6 +4,7 @@ import 'package:tectoyexemplo/pages/cancelar_paygo.dart';
 import 'package:tectoyexemplo/pages/imagem.dart';
 import 'package:tectoyexemplo/pages/klamp.dart';
 import 'package:tectoyexemplo/pages/label.dart';
+import 'package:tectoyexemplo/pages/scannerp2.dart';
 import 'package:tectoyexemplo/plugin/paygosdk.dart';
 import 'package:tectoyexemplo/pages/paygo_activity.dart';
 import 'package:tectoyexemplo/pages/qrcode.dart';
@@ -115,6 +116,13 @@ List<Map> funcoes = [
     "name": "Teste de Etiqueta",
     "page": Label(
       title: "Teste de Etiqueta",
+    )
+  },
+  {
+    "img": "assets/image/scanner_s.png",
+    "name": "Scanner",
+    "page": Scannerp2(
+      title: "Scanner",
     )
   },
 ];

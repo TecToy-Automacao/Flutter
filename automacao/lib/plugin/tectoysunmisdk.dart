@@ -141,12 +141,22 @@ class Tectoysunmisdk {
   }
 
   // Efetua impressão de etiqueta
-  static Future<void> printonelabel() async {
-    await _channel.invokeMethod('printonelabel');
+  static Future<void> printonelabel(
+      String texto, String data, String code) async {
+    Map<String, dynamic> printlabel = Map();
+    printlabel['texto'] = texto;
+    printlabel['data'] = data;
+    printlabel['code'] = code;
+    await _channel.invokeMethod('printonelabel', printlabel);
   }
 
-  static Future<void> printmultilabel() async {
-    await _channel.invokeMethod('printmultilabel');
+  static Future<void> printmultilabel(
+      String texto, String data, String code) async {
+    Map<String, dynamic> printmulti = Map();
+    printmulti['texto'] = texto;
+    printmulti['data'] = data;
+    printmulti['code'] = code;
+    await _channel.invokeMethod('printmultilabel', printmulti);
   }
 
   static Future<void> printTextoCompleto(

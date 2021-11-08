@@ -924,14 +924,14 @@ public class TectoySunmiPrint {
      * Depois de imprimir uma única etiqueta, a fim de facilitar ao usuário rasgar o papel,
      * chame labelOutput e empurre o papel da etiqueta para fora da escotilha de papel
      */
-    public void printOneLabel() {
+    public void printOneLabel(String texto, String data, String code) {
         if(sunmiPrinterService == null){
             //TODO Service disconnection processing
             return ;
         }
         try {
             sunmiPrinterService.labelLocate();
-            printLabelContent();
+            printLabelContent(texto, data, code);
             sunmiPrinterService.labelOutput();
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -946,7 +946,7 @@ public class TectoySunmiPrint {
      * Depois de imprimir várias etiquetas, escolha se deseja empurrar o papel
      * da etiqueta para a escotilha de papel de acordo com as necessidades
      */
-    public void printMultiLabel(int num) {
+    public void printMultiLabel(int num, String texto, String data, String code) {
         if(sunmiPrinterService == null){
             //TODO Service disconnection processing
             return ;
@@ -954,7 +954,7 @@ public class TectoySunmiPrint {
         try {
             for(int i = 0; i < num; i++){
                 sunmiPrinterService.labelLocate();
-                printLabelContent();
+                printLabelContent(texto, data, code);
             }
             sunmiPrinterService.labelOutput();
         } catch (RemoteException e) {
@@ -969,13 +969,13 @@ public class TectoySunmiPrint {
      *  自定义的标签小票内容
      *  例子中并不能适用所有标签纸，实际使用时注意要自适配标签纸大小，可通过调节字体大小，内容位置等方式
      */
-    private void printLabelContent() throws RemoteException {
+    private void printLabelContent(String texto, String data, String code) throws RemoteException {
         sunmiPrinterService.setPrinterStyle(WoyouConsts.ENABLE, WoyouConsts.ENABLE);
         sunmiPrinterService.lineWrap(1, null);
         sunmiPrinterService.setAlignment(0, null);
-        sunmiPrinterService.printText("Mercadoria         Leite de soja\n", null);
-        sunmiPrinterService.printText("Data de validade:  23/12/2021\n", null);
-        sunmiPrinterService.printBarCode("{C1234567890123456",  8, 60, 2, 2, null);
+        sunmiPrinterService.printText(texto + "\n", null);
+        sunmiPrinterService.printText(data + "\n", null);
+        sunmiPrinterService.printBarCode(code.toString(),  8, 60, 2, 2, null);
         sunmiPrinterService.lineWrap(1, null);
         sunmiPrinterService.setPrinterStyle(WoyouConsts.DISABLE, WoyouConsts.DISABLE);
     }

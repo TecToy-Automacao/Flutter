@@ -33,7 +33,9 @@ class _LabelState extends State<Label> {
                   child: const Text("Imprimir Uma Etiqueta"),
                   style: TextButton.styleFrom(primary: Constants.white),
                   onPressed: () {
-                    Tectoysunmisdk.printonelabel();
+                    Tectoysunmisdk.printStyleBold(true);
+                    Tectoysunmisdk.printonelabel("Mercadoria:     V2 Pro",
+                        "Data de Validade:    05/11/2030", "458795689542");
                   }),
             ),
             SizedBox(height: 10.0),
@@ -45,7 +47,9 @@ class _LabelState extends State<Label> {
                   child: const Text("Imprimir Multi-Etiqueta"),
                   style: TextButton.styleFrom(primary: Constants.white),
                   onPressed: () {
-                    Tectoysunmisdk.printmultilabel();
+                    Tectoysunmisdk.printStyleBold(true);
+                    Tectoysunmisdk.printmultilabel("Mercadoria:     V2 Pro",
+                        "Data de Validade:    05/11/2030", "458795689542");
                   }),
             ),
           ],
