@@ -1,6 +1,14 @@
 // import 'dart:html';
 
+//import 'dart:html';
+
+import 'dart:convert';
+import 'dart:io';
+import 'dart:typed_data';
+//import 'dart:html';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 // import 'package:qr_flutter/qr_flutter.dart';
 import 'package:tectoyexemplo/Utils/constants.dart';
 import 'package:tectoyexemplo/Widgets/appbar.dart';
@@ -102,8 +110,13 @@ class _ImagemState extends State<Imagem> {
               child: TextButton(
                   child: const Text("Imprimir"),
                   style: TextButton.styleFrom(primary: Constants.white),
-                  onPressed: () {
+                  onPressed: () async {
                     print("imprimir");
+                    Image img = Image.asset("assets/image/test.jpg");
+                    Tectoysunmisdk.printImage();
+                    var bytes =
+                        await new File("assets/image/test.jpg").readAsBytes();
+                    print(bytes);
                   }),
             ),
           ],
@@ -154,4 +167,6 @@ class _ImagemState extends State<Imagem> {
       },
     );
   }
+
+  getTemporaryDirectory() {}
 }

@@ -71,6 +71,22 @@ class Tectoysunmisdk {
     await _channel.invokeMethod('printStyleUnderLine', style);
   }
 
+  static Future<void> sendPicToLcd() async {
+    await _channel.invokeMethod('sendPicToLcd');
+  }
+
+  static Future<void> sendTextsToLcd() async {
+    await _channel.invokeMethod('sendTextsToLcd');
+  }
+
+  static Future<void> sendTextToLcd() async {
+    await _channel.invokeMethod('sendTextToLcd');
+  }
+
+  static Future<void> controlLcd() async {
+    await _channel.invokeMethod('controlLcd');
+  }
+
 // Style Impressão
   static Future<void> printStyleAntiWhite(bool status) async {
     Map<String, dynamic> style = Map();
@@ -135,9 +151,7 @@ class Tectoysunmisdk {
 
   // Efetua Impressão de Imagem
   static Future<void> printImage() async {
-    Map<String, dynamic> textWithSize = Map();
-    // Implementar metodo
-    await _channel.invokeMethod('printBitmap', textWithSize);
+    await _channel.invokeMethod('printBitmap');
   }
 
   // Efetua impressão de etiqueta

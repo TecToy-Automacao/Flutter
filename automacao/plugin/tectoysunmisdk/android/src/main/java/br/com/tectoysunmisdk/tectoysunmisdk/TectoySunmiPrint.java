@@ -794,8 +794,8 @@ public class TectoySunmiPrint {
             sunmiPrinterService.printerInit(null);
             sunmiPrinterService.setAlignment(1, null);
             sunmiPrinterService.printText("Amostra de teste\n", null);
-            // Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.sunmi);
-            // sunmiPrinterService.printBitmap(bitmap, null);
+            Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.sunmi);
+            sunmiPrinterService.printBitmap(bitmap, null);
             sunmiPrinterService.lineWrap(1, null);
             sunmiPrinterService.setAlignment(0, null);
             try {

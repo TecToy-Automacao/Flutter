@@ -1,6 +1,11 @@
 package br.com.tectoysunmisdk.tectoysunmisdk;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.graphics.drawable.BitmapDrawable;
+import android.os.Build;
 
 import androidx.annotation.NonNull;
 
@@ -85,6 +90,14 @@ public class TectoysunmisdkPlugin implements FlutterPlugin, MethodCallHandler {
 
   // Imprime printBitmap
   private final String printBitmap = "printBitmap";
+
+
+  private final String sendPicToLcd = "sendPicToLcd";
+  private final String sendTextsToLcd = "sendTextsToLcd";
+  private final String sendTextToLcd = "sendTextToLcd";
+  private final String controlLcd = "controlLcd";
+
+
   private final String scanner = "scanner";
 
   // Variaveis comuns
@@ -116,6 +129,24 @@ public class TectoysunmisdkPlugin implements FlutterPlugin, MethodCallHandler {
 
 
     switch (call.method){
+      case controlLcd:
+        TectoySunmiPrint.getInstance().controlLcd(1);
+        TectoySunmiPrint.getInstance().controlLcd(2);
+        TectoySunmiPrint.getInstance().controlLcd(4);
+        break;
+      case sendTextToLcd:
+        TectoySunmiPrint.getInstance().sendTextToLcd();
+        break;
+      case sendTextsToLcd:
+        TectoySunmiPrint.getInstance().sendTextsToLcd();
+        break;
+      case sendPicToLcd:
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inScaled = false;
+        options.inDensity = contextAplication.getResources().getDisplayMetrics().densityDpi;
+        TectoySunmiPrint.getInstance().sendPicToLcd(BitmapFactory.decodeResource(contextAplication.getResources(),
+                R.drawable.mini, options));
+        break;
       case scanner:
         break;
       case printonelabel:
@@ -264,10 +295,14 @@ public class TectoysunmisdkPlugin implements FlutterPlugin, MethodCallHandler {
         TectoySunmiPrint.getInstance().printTable(null, null, null);
         break;
       case printBitmap:
-        // Todo
-        result.success("Tem que implementar ainda  " + android.os.Build.VERSION.RELEASE);
+
+        Bitmap bitmap = BitmapFactory.decodeResource(contextAplication.getResources(), R.drawable.sunmi);
+        //System.out.println(R.drawable.sunmi);
+        TectoySunmiPrint.getInstance().printBitmap(bitmap);
+
+        //result.success("Tem que implementar ainda  " + Build.VERSION.RELEASE);
       case getPlatformVersion:
-        result.success("Android " + android.os.Build.VERSION.RELEASE);
+        result.success("Android " + Build.VERSION.RELEASE);
         break;
     }
 
@@ -276,5 +311,15 @@ public class TectoysunmisdkPlugin implements FlutterPlugin, MethodCallHandler {
   @Override
   public void onDetachedFromEngine(@NonNull FlutterPluginBinding binding) {
     channel.setMethodCallHandler(null);
+  }
+
+  private Bitmap scaleImage(Bitmap bitmap1) {
+    int width = bitmap1.getWidth();
+    int height = bitmap1.getHeight();
+    int newWidth = (width / 8 + 1) * 8;
+    float scaleWidth = ((float) newWidth) / width;
+    Matrix matrix = new Matrix();
+    matrix.postScale(scaleWidth, 1);
+    return Bitmap.createBitmap(bitmap1, 0, 0, width, height, matrix, true);
   }
 }

@@ -4,6 +4,7 @@ import 'package:tectoyexemplo/pages/cancelar_paygo.dart';
 import 'package:tectoyexemplo/pages/imagem.dart';
 import 'package:tectoyexemplo/pages/klamp.dart';
 import 'package:tectoyexemplo/pages/label.dart';
+import 'package:tectoyexemplo/pages/lcd.dart';
 import 'package:tectoyexemplo/pages/scannerp2.dart';
 import 'package:tectoyexemplo/plugin/paygosdk.dart';
 import 'package:tectoyexemplo/pages/paygo_activity.dart';
@@ -90,13 +91,13 @@ List<Map> funcoes = [
       title: "Lamp",
     )
   },
-  // {
-  //   "img": "assets/image/function_lcd.png",
-  //   "name": "Lcd",
-  //   "page": TextCompleto(
-  //     title: "Teste Completo",
-  //   )
-  // },
+  {
+    "img": "assets/image/function_lcd.png",
+    "name": "Lcd",
+    "page": Lcd(
+      title: "LCD",
+    )
+  },
   // {
   //   "img": "assets/image/function_status.png",
   //   "name": "Status",
