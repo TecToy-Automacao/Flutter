@@ -297,12 +297,11 @@ public class TectoysunmisdkPlugin implements FlutterPlugin, MethodCallHandler {
         TectoySunmiPrint.getInstance().printTable(null, null, null);
         break;
       case printBitmap:
-
-        Bitmap bitmap = BitmapFactory.decodeResource(contextAplication.getResources(), R.drawable.test);
-        //System.out.println(R.drawable.sunmi);
-        TectoySunmiPrint.getInstance().printBitmap(bitmap);
-
-        //result.success("Tem que implementar ainda  " + Build.VERSION.RELEASE);
+        BitmapFactory.Options o = new BitmapFactory.Options();
+        o.inTargetDensity = 160;
+        o.inDensity = 160;
+        Bitmap bitmap = BitmapFactory.decodeResource(contextAplication.getResources(), R.drawable.test1, o);
+        TectoySunmiPrint.getInstance().printBitmap(scaleImage(bitmap));
       case getPlatformVersion:
         result.success("Android " + Build.VERSION.RELEASE);
         break;

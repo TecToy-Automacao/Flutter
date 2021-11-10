@@ -417,6 +417,19 @@ class Tectoysunmisdk {
     printQr("www.tectoysunmi.com.br", 8, 1);
     //feedPaper();
 
+    // Impressão de Imagem
+    setAlignment(TextoAlinhamento.CENTER);
+    printText("Imprime Imagem\n");
+    printText("--------------------------------\n");
+    printImage();
+    print3Line();
+    setAlignment(TextoAlinhamento.LEFT);
+    printImage();
+    print3Line();
+    setAlignment(TextoAlinhamento.RIGTH);
+    printImage();
+    print3Line();
+
     setAlignment(TextoAlinhamento.CENTER);
     printText("Imprime Tabela\n");
     printText("--------------------------------\n");
