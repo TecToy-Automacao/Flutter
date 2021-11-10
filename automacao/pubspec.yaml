@@ -88,6 +88,7 @@ flutter:
     - assets/image/function_cash.png
     - assets/image/function_label.png
     - assets/image/function_lcd.png
+    - assets/image/function_cortar.png
     - assets/image/function_multi.png
     - assets/image/function_pic.png
     - assets/image/function_qr.png

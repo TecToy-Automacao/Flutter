@@ -1,5 +1,8 @@
 package com.scanner.scanner;
 
+import android.content.Context;
+import android.view.KeyEvent;
+
 import androidx.annotation.NonNull;
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
@@ -15,19 +18,29 @@ public class ScannerPlugin implements FlutterPlugin, MethodCallHandler {
   /// This local reference serves to register the plugin with the Flutter Engine and unregister it
   /// when the Flutter Engine is detached from the Activity
   private MethodChannel channel;
-
+  private Context contextAplication;
+  private final String scan = "scan";
+  private final String initscanner = "initscanner";
+  private final String stop = "stop";
   @Override
   public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
     channel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "scanner");
     channel.setMethodCallHandler(this);
+    contextAplication = flutterPluginBinding.getApplicationContext();
   }
 
   @Override
   public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
-    if (call.method.equals("getPlatformVersion")) {
-      result.success("Android " + android.os.Build.VERSION.RELEASE);
-    } else {
-      result.notImplemented();
+    switch (call.method){
+      case initscanner:
+        Scanner.getInstance().bindScannerService(contextAplication);
+        break;
+      case scan:
+        Scanner.getInstance().scan();
+        break;
+      case stop:
+        Scanner.getInstance().stop();
+        break;
     }
   }
 

@@ -78,6 +78,10 @@ class Item extends StatelessWidget {
       Tectoysunmisdk.openCashBox();
     } else if (op == "Avança Papel") {
       Tectoysunmisdk.print3Line();
+    } else if (op == "Cortar Papel") {
+      Tectoysunmisdk.cutpaper();
+    } else if (op == "Status") {
+      Tectoysunmisdk.showPrinterStatus();
     } else {
       Navigator.of(context).push(
         MaterialPageRoute(

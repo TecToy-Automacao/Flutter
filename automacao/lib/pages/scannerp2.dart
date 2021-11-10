@@ -1,8 +1,11 @@
+//import 'dart:html';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tectoyexemplo/Utils/constants.dart';
 import 'package:tectoyexemplo/Widgets/appbar.dart';
 import 'package:tectoyexemplo/Widgets/item.dart';
+import 'package:tectoyexemplo/plugin/scannersdk.dart';
 
 class Scannerp2 extends StatefulWidget {
   final String title;
@@ -117,7 +120,10 @@ class _Scannerp2State extends State<Scannerp2> {
               child: TextButton(
                   child: const Text("Scanner"),
                   style: TextButton.styleFrom(primary: Constants.white),
-                  onPressed: () {}),
+                  onPressed: () {
+                    Scannersdk.init();
+                    Scannersdk.scan();
+                  }),
             ),
           ],
         ),

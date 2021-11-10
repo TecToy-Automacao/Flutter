@@ -46,7 +46,7 @@ List<Map> funcoes = [
     "img": "assets/image/function_tab.png",
     "name": "Formulário",
     "page": Tabela(
-      title: "Teste Completo",
+      title: "Formulario",
     )
   },
   {
@@ -57,24 +57,66 @@ List<Map> funcoes = [
     )
   },
   {
-    "img": "assets/image/scanner_s.png",
-    "name": "Leitura BarCode",
-    "page": LeituraBarCode(
-      title: "Leitura BarCode",
-    )
-  },
-  {
     "img": "assets/image/function_threeline.png",
     "name": "Avança Papel",
     "page": TextCompleto(
-      title: "Teste Completo",
+      title: "Avanço Papel",
     )
   },
   {
     "img": "assets/image/function_cash.png",
     "name": "Gaveta",
     "page": TextCompleto(
-      title: "Teste Completo",
+      title: "Gaveta",
+    )
+  },
+  {
+    "img": "assets/image/function_lcd.png",
+    "name": "Lcd",
+    "page": Lcd(
+      title: "LCD",
+    )
+  },
+  {
+    "img": "assets/image/function_status.png",
+    "name": "Status",
+    "page": TextCompleto(
+      title: "Status",
+    )
+  },
+  {
+    "img": "assets/image/function_blackline.png",
+    "name": "Tarja preta",
+    "page": TextCompleto(
+      title: "Tarja Preta",
+    )
+  },
+  {
+    "img": "assets/image/function_label.png",
+    "name": "Teste de Etiqueta",
+    "page": Label(
+      title: "Teste de Etiqueta",
+    )
+  },
+  {
+    "img": "assets/image/function_cortar.png",
+    "name": "Cortar Papel",
+    "page": TextCompleto(
+      title: "Cortar Papel",
+    )
+  },
+  {
+    "img": "assets/image/scanner_s.png",
+    "name": "Scanner",
+    "page": LeituraBarCode(
+      title: "Scanner",
+    )
+  },
+  {
+    "img": "assets/image/function_led.png",
+    "name": "LED",
+    "page": Klamp(
+      title: "LED",
     )
   },
   {
@@ -85,45 +127,10 @@ List<Map> funcoes = [
     )
   },
   {
-    "img": "assets/image/function_led.png",
-    "name": "Lamp",
-    "page": Klamp(
-      title: "Lamp",
-    )
-  },
-  {
-    "img": "assets/image/function_lcd.png",
-    "name": "Lcd",
-    "page": Lcd(
-      title: "LCD",
-    )
-  },
-  // {
-  //   "img": "assets/image/function_status.png",
-  //   "name": "Status",
-  //   "page": TextCompleto(
-  //     title: "Teste Completo",
-  //   )
-  // },
-  // {
-  //   "img": "assets/image/function_blackline.png",
-  //   "name": "Tarja preta",
-  //   "page": TextCompleto(
-  //     title: "Teste Completo",
-  //   )
-  // },
-  {
-    "img": "assets/image/function_label.png",
-    "name": "Teste de Etiqueta",
-    "page": Label(
-      title: "Teste de Etiqueta",
-    )
-  },
-  {
     "img": "assets/image/scanner_s.png",
-    "name": "Scanner",
+    "name": "Scanner Device",
     "page": Scannerp2(
-      title: "Scanner",
+      title: "Scanner Device",
     )
   },
 ];

@@ -100,6 +100,8 @@ public class TectoysunmisdkPlugin implements FlutterPlugin, MethodCallHandler {
 
   private final String scanner = "scanner";
 
+  private final String showPrinterStatus = "showPrinterStatus";
+
   // Variaveis comuns
   private String text = "";
   private int size = 0;
@@ -125,10 +127,10 @@ public class TectoysunmisdkPlugin implements FlutterPlugin, MethodCallHandler {
 
     Log.d(TectoysunmisdkPlugin.class.getName(), call.method);;
 
-    
-
-
     switch (call.method){
+      case showPrinterStatus:
+        TectoySunmiPrint.getInstance().showPrinterStatus(contextAplication);
+        break;
       case controlLcd:
         TectoySunmiPrint.getInstance().controlLcd(1);
         TectoySunmiPrint.getInstance().controlLcd(2);
@@ -296,7 +298,7 @@ public class TectoysunmisdkPlugin implements FlutterPlugin, MethodCallHandler {
         break;
       case printBitmap:
 
-        Bitmap bitmap = BitmapFactory.decodeResource(contextAplication.getResources(), R.drawable.sunmi);
+        Bitmap bitmap = BitmapFactory.decodeResource(contextAplication.getResources(), R.drawable.test);
         //System.out.println(R.drawable.sunmi);
         TectoySunmiPrint.getInstance().printBitmap(bitmap);
 

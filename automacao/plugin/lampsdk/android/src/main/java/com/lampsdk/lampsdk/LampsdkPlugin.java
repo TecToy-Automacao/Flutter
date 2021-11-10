@@ -39,7 +39,7 @@ public class LampsdkPlugin implements FlutterPlugin, MethodCallHandler {
   /// This local reference serves to register the plugin with the Flutter Engine and unregister it
   /// when the Flutter Engine is detached from the Activity
   private MethodChannel channel;
-  private static IStateLamp mService;
+
   private Context contextAplication;
 
   // VARIAVEIS
@@ -51,40 +51,6 @@ public class LampsdkPlugin implements FlutterPlugin, MethodCallHandler {
   private final String vermelho = "vermelho";
   private final String desligar = "desligar";
   private final String init = "init";
-
-  //connect
-  protected Lamp mMyApp;
-  private ServiceConnection con = new ServiceConnection() {
-    @Override
-    public void onServiceConnected(ComponentName name, IBinder service) {
-      mService = IStateLamp.Stub.asInterface(service);
-      Log.d("darren", "Service Connected.");
-    }
-
-    @Override
-    public void onServiceDisconnected(ComponentName name) {
-      Log.d("darren", "Service Disconnected.");
-      mService = null;
-    }
-  };
-  private Activity mCurrentActivity = null;
-  public Activity getCurrentActivity () {
-    return mCurrentActivity ;
-  }
-  public void setCurrentActivity (Activity mCurrentActivity) {
-    this . mCurrentActivity = mCurrentActivity ;
-  }
-  public void connectService() {
-    Intent intent = new Intent();
-    intent.setPackage("com.sunmi.statuslampmanager");
-    intent.setAction("com.sunmi.statuslamp.service");
-    // startService(intent);
-    // bindService(intent, con, Context.BIND_AUTO_CREATE);
-   // mCurrentActivity.startService(intent);
-   // mCurrentActivity.bindService(intent, con, Context.BIND_AUTO_CREATE);
-
-   // contextAplication.startService(intent)
-  }
 
   @Override
   public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
@@ -98,67 +64,37 @@ public class LampsdkPlugin implements FlutterPlugin, MethodCallHandler {
 
     switch (call.method){
       case init:
-
-        System.out.println();
+        Lamp.getInstance().connectService(contextAplication);
         break;
       case roxo:
-        try {
-          mService.controlLamp(0, "Led-3");
-          mService.controlLampForLoop(0,500000,100,"Led-1");
-          System.out.println("LED-3");
-        } catch (RemoteException e) {
-          e.printStackTrace();
-        }
+          Lamp.getInstance().closeAllLamp();
+          Lamp.getInstance().controlLamp(0, "Led-3");
+          Lamp.getInstance().controlLampForLoop(0,500000,100,"Led-1");
         break;
       case verde:
-        try {
-          mService.closeAllLamp();
-          mService.controlLamp(0, "Led-2");
-        } catch (RemoteException e) {
-          e.printStackTrace();
-        }
+        Lamp.getInstance().closeAllLamp();
+        Lamp.getInstance().controlLamp(0, "Led-2");
         break;
       case azul:
-        try {
-          mService.closeAllLamp();
-          mService.controlLamp(0, "Led-3");
-        } catch (RemoteException e) {
-          e.printStackTrace();
-        }
-        break;
-      case amarelo:
-        try {
-          mService.closeAllLamp();
-          mService.controlLamp(0, "Led-2");
-          mService.controlLampForLoop(0,50000,100,"Led-1");
-
-        } catch (RemoteException e) {
-          e.printStackTrace();
-        }
-        break;
-      case azulclaro:
-        try {
-          mService.closeAllLamp();
-          mService.controlLamp(0, "Led-3");
-          mService.controlLampForLoop(0,500000,100,"Led-2");
-        } catch (RemoteException e) {
-          e.printStackTrace();
-        }
-         break;
-      case desligar:
-        try {
-          mService.closeAllLamp();
-        } catch (RemoteException e) {
-          e.printStackTrace();
-        }
+        Lamp.getInstance().closeAllLamp();
+        Lamp.getInstance().controlLamp(0, "Led-3");
         break;
       case vermelho:
-        try {
-          mService.closeAllLamp();
-          mService.controlLamp(0, "Led-1");
-        } catch (RemoteException e) {
-          e.printStackTrace();
-        }
+        Lamp.getInstance().closeAllLamp();
+        Lamp.getInstance().controlLamp(0, "Led-1");
+        break;
+      case azulclaro:
+        Lamp.getInstance().closeAllLamp();
+        Lamp.getInstance().controlLamp(0, "Led-3");
+        Lamp.getInstance().controlLampForLoop(0,500000,100,"Led-2");
+        break;
+      case desligar:
+        Lamp.getInstance().closeAllLamp();
+        break;
+      case amarelo:
+        Lamp.getInstance().closeAllLamp();
+        Lamp.getInstance().controlLamp(0, "Led-2");
+        Lamp.getInstance().controlLampForLoop(0,50000,100,"Led-1");
         break;
     }
   }

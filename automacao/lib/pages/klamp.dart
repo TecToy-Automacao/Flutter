@@ -47,6 +47,7 @@ class _KlampState extends State<Klamp> {
                   child: const Text("Roxo"),
                   style: TextButton.styleFrom(primary: Constants.white),
                   onPressed: () {
+                    Lampsdk.init();
                     Lampsdk.roxo();
                   }),
             ),
@@ -59,6 +60,7 @@ class _KlampState extends State<Klamp> {
                   child: const Text("Azul Claro"),
                   style: TextButton.styleFrom(primary: Constants.white),
                   onPressed: () {
+                    Lampsdk.init();
                     Lampsdk.azulclaro();
                   }),
             ),
@@ -71,6 +73,7 @@ class _KlampState extends State<Klamp> {
                   child: const Text("Azul"),
                   style: TextButton.styleFrom(primary: Constants.white),
                   onPressed: () {
+                    Lampsdk.init();
                     Lampsdk.azul();
                   }),
             ),
@@ -83,6 +86,7 @@ class _KlampState extends State<Klamp> {
                   child: const Text("Verde"),
                   style: TextButton.styleFrom(primary: Constants.white),
                   onPressed: () {
+                    Lampsdk.init();
                     Lampsdk.verde();
                   }),
             ),
@@ -95,6 +99,7 @@ class _KlampState extends State<Klamp> {
                   child: const Text("Vermelho"),
                   style: TextButton.styleFrom(primary: Constants.white),
                   onPressed: () {
+                    Lampsdk.init();
                     Lampsdk.vermelho();
                   }),
             ),
@@ -107,6 +112,7 @@ class _KlampState extends State<Klamp> {
                   child: const Text("Amarelo"),
                   style: TextButton.styleFrom(primary: Constants.white),
                   onPressed: () {
+                    Lampsdk.init();
                     Lampsdk.amarelo();
                   }),
             ),
@@ -119,19 +125,8 @@ class _KlampState extends State<Klamp> {
                   child: const Text("Desligar"),
                   style: TextButton.styleFrom(primary: Constants.white),
                   onPressed: () {
-                    Lampsdk.desligar();
-                  }),
-            ),
-            SizedBox(height: 10.0),
-            Container(
-              color: Constants.red,
-              height: 50.0,
-              width: 1000.0,
-              child: TextButton(
-                  child: const Text("Iniciar"),
-                  style: TextButton.styleFrom(primary: Constants.white),
-                  onPressed: () {
                     Lampsdk.init();
+                    Lampsdk.desligar();
                   }),
             ),
           ],

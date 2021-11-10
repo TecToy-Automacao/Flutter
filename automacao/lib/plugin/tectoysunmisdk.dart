@@ -57,6 +57,11 @@ class Tectoysunmisdk {
     await _channel.invokeMethod('setAlignment', alinhamento);
   }
 
+  // Status Impressora
+  static Future<void> showPrinterStatus() async {
+    await _channel.invokeMethod("showPrinterStatus");
+  }
+
   // Style Impressão
   static Future<void> printStyleBold(bool status) async {
     Map<String, dynamic> style = Map();
