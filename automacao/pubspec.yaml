@@ -46,6 +46,7 @@ dependencies:
   paygosdk:
     path: plugin/paygosdk
 
+
   tectoysunmisdk:
     path: plugin/tectoysunmisdk
   xml: ^5.3.0
