@@ -21,18 +21,21 @@ class ButtonWidget extends StatelessWidget {
     return Container(
       height: 50.0,
       width: MediaQuery.of(context).size.width / 1.1,
-      child: RaisedButton(
-          child: Text(
-            this.text.toUpperCase(),
-            style: TextStyle(
-              fontSize: this.text_size,
-              color: this.text_color,
-            ),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: this.background,
+        ),
+        child: Text(
+          this.text.toUpperCase(),
+          style: TextStyle(
+            fontSize: this.text_size,
+            color: this.text_color,
           ),
-          onPressed: () {
-            this.onTap;
-          },
-          color: this.background),
+        ),
+        onPressed: () {
+          this.onTap;
+        },
+      ),
     );
   }
 }

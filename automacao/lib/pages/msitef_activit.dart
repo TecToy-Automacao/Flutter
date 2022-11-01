@@ -1,9 +1,6 @@
 import 'dart:convert';
-import 'dart:math';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:tectoyexemplo/Utils/constants.dart';
 import 'package:tectoyexemplo/Widgets/appbar.dart';
 import 'package:tectoyexemplo/Widgets/item.dart';
@@ -270,9 +267,11 @@ class _Msitef_activitState extends State<Msitef_activit> {
             decoration: InputDecoration(hintText: hintText),
           ),
           actions: <Widget>[
-            FlatButton(
-              color: Colors.red,
-              textColor: Colors.white,
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+                textStyle: TextStyle(color: Colors.white),
+              ),
               child: Text('CANCEL'),
               onPressed: () {
                 setState(() {
@@ -281,9 +280,11 @@ class _Msitef_activitState extends State<Msitef_activit> {
                 });
               },
             ),
-            FlatButton(
-              color: Colors.green,
-              textColor: Colors.white,
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                textStyle: TextStyle(color: Colors.white),
+              ),
               child: Text('OK'),
               onPressed: () {
                 setState(() {
@@ -329,9 +330,11 @@ class _Msitef_activitState extends State<Msitef_activit> {
             },
           ),
           actions: <Widget>[
-            FlatButton(
-              color: Colors.red,
-              textColor: Colors.white,
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+                textStyle: TextStyle(color: Colors.white),
+              ),
               child: Text('CANCEL'),
               onPressed: () {
                 setState(() {
@@ -409,7 +412,7 @@ class _Msitef_activitState extends State<Msitef_activit> {
           child: AlertDialog(
             title: Text(msitef.nsu),
             actions: [
-              FlatButton(
+              ElevatedButton(
                 child: Text("OK"),
                 onPressed: () {
                   Navigator.pop(context);
@@ -440,7 +443,7 @@ class _Msitef_activitState extends State<Msitef_activit> {
           child: AlertDialog(
             title: Text("Erro na Operacao"),
             actions: [
-              FlatButton(
+              ElevatedButton(
                 child: Text("OK"),
                 onPressed: () {
                   print('Clicou no DialogErro');
@@ -475,7 +478,7 @@ class _Msitef_activitState extends State<Msitef_activit> {
           child: AlertDialog(
             title: Text(titulo),
             actions: [
-              FlatButton(
+              ElevatedButton(
                 child: Text("Sim"),
                 onPressed: () async {
                   print('Clicou na impressão do comprovante');
@@ -483,7 +486,7 @@ class _Msitef_activitState extends State<Msitef_activit> {
                   Navigator.of(context).pop(true);
                 },
               ),
-              FlatButton(
+              ElevatedButton(
                 child: Text("Não"),
                 onPressed: () {
                   print('Clicou na NÃO impressão do comprovante');

@@ -1,15 +1,13 @@
 import 'package:tectoyexemplo/pages/LeituraBarCode.dart';
 import 'package:tectoyexemplo/pages/barcode.dart';
-import 'package:tectoyexemplo/pages/cancelar_paygo.dart';
 import 'package:tectoyexemplo/pages/imagem.dart';
 import 'package:tectoyexemplo/pages/klamp.dart';
 import 'package:tectoyexemplo/pages/label.dart';
 import 'package:tectoyexemplo/pages/lcd.dart';
 import 'package:tectoyexemplo/pages/msitef_activit.dart';
-import 'package:tectoyexemplo/pages/scannerp2.dart';
-import 'package:tectoyexemplo/plugin/paygosdk.dart';
 import 'package:tectoyexemplo/pages/paygo_activity.dart';
 import 'package:tectoyexemplo/pages/qrcode.dart';
+import 'package:tectoyexemplo/pages/scannerp2.dart';
 import 'package:tectoyexemplo/pages/tabela.dart';
 import 'package:tectoyexemplo/pages/test_complet.dart';
 import 'package:tectoyexemplo/pages/texto.dart';
