@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tectoyexemplo/Utils/constants.dart';
 import 'package:tectoyexemplo/Widgets/appbar.dart';
-import 'package:tectoyexemplo/Widgets/button.dart';
 import 'package:tectoyexemplo/Widgets/item.dart';
 import 'package:tectoyexemplo/plugin/tectoysunmisdk.dart';
 
@@ -238,9 +237,11 @@ class _TextoState extends State<Texto> {
             },
           ),
           actions: <Widget>[
-            FlatButton(
-              color: Colors.red,
-              textColor: Colors.white,
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+                textStyle: TextStyle(color: Colors.white),
+              ),
               child: Text('CANCEL'),
               onPressed: () {
                 setState(() {

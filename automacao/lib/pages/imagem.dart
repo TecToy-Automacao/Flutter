@@ -1,22 +1,14 @@
 // import 'dart:html';
 
-//import 'dart:html';
-
-import 'dart:convert';
 import 'dart:io';
-import 'dart:typed_data';
+
 //import 'dart:html';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 // import 'package:qr_flutter/qr_flutter.dart';
 import 'package:tectoyexemplo/Utils/constants.dart';
 import 'package:tectoyexemplo/Widgets/appbar.dart';
-import 'package:tectoyexemplo/Widgets/button.dart';
-import 'package:tectoyexemplo/Widgets/inputdialog.dart';
 import 'package:tectoyexemplo/Widgets/item.dart';
-import 'package:tectoyexemplo/Widgets/showalertdialog.dart';
-import 'package:tectoyexemplo/pages/qrcode.dart';
 import 'package:tectoyexemplo/plugin/tectoysunmisdk.dart';
 // import 'package:bitmap/bitmap.dart';
 
@@ -125,47 +117,61 @@ class _ImagemState extends State<Imagem> {
     );
   }
 
-  Future<void> _displayListInputDialog(String Title, String hintText,
+  Future<Future> _displayListInputDialog(String Title, String hintText,
       List oldValue, BuildContext context, String variavel) async {
     TextEditingController _textFieldController = new TextEditingController();
     List oldText = oldValue;
     int _id = 0;
     return showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: Text(Title),
-          content: ListView.builder(
-            shrinkWrap: true,
-            itemCount: oldText.length,
-            itemBuilder: (BuildContext context, int index) {
-              return ListTile(
-                title: Text('${oldText[index]}'),
-                onTap: () {
-                  setState(() {
-                    _id = index;
-                  });
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            scrollable: true,
+            title: Text(Title),
+            content: Container(
+              width: 200,
+              height: 200,
+              child: Column(
+                children: [
+                  Expanded(
+                    child: ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      physics: ScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: oldText.length,
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          title: Text('${oldText[index]}'),
+                          onTap: () {
+                            setState(() {
+                              _id = index;
+                            });
 
-                  Navigator.pop(context);
-                },
-              );
-            },
-          ),
-          actions: <Widget>[
-            FlatButton(
-              color: Colors.red,
-              textColor: Colors.white,
-              child: Text('CANCEL'),
-              onPressed: () {
-                setState(() {
-                  Navigator.pop(context);
-                });
-              },
+                            Navigator.pop(context);
+                          },
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ],
-        );
-      },
-    );
+            actions: <Widget>[
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                  textStyle: TextStyle(color: Colors.white),
+                ),
+                child: Text('CANCEL'),
+                onPressed: () {
+                  setState(() {
+                    Navigator.pop(context);
+                  });
+                },
+              ),
+            ],
+          );
+        });
   }
 
   getTemporaryDirectory() {}

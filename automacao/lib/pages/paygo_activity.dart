@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:math';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tectoyexemplo/Utils/constants.dart';
 import 'package:tectoyexemplo/Widgets/appbar.dart';
@@ -366,9 +365,11 @@ class _Paygo_activityState extends State<Paygo_activity> {
             decoration: InputDecoration(hintText: hintText),
           ),
           actions: <Widget>[
-            FlatButton(
-              color: Colors.red,
-              textColor: Colors.white,
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+                textStyle: TextStyle(color: Colors.white),
+              ),
               child: Text('CANCEL'),
               onPressed: () {
                 setState(() {
@@ -377,9 +378,11 @@ class _Paygo_activityState extends State<Paygo_activity> {
                 });
               },
             ),
-            FlatButton(
-              color: Colors.green,
-              textColor: Colors.white,
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                textStyle: TextStyle(color: Colors.white),
+              ),
               child: Text('OK'),
               onPressed: () {
                 setState(() {
@@ -427,9 +430,11 @@ class _Paygo_activityState extends State<Paygo_activity> {
             },
           ),
           actions: <Widget>[
-            FlatButton(
-              color: Colors.red,
-              textColor: Colors.white,
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+                textStyle: TextStyle(color: Colors.white),
+              ),
               child: Text('CANCEL'),
               onPressed: () {
                 setState(() {
@@ -589,14 +594,14 @@ class _Paygo_activityState extends State<Paygo_activity> {
           child: AlertDialog(
             title: Text("Confirmação manual"),
             actions: [
-              FlatButton(
+              ElevatedButton(
                 child: Text("Confirme"),
                 onPressed: () {
                   Paygosdk.confirmaOperacaoManual();
                   Navigator.of(context).pop(true);
                 },
               ),
-              FlatButton(
+              ElevatedButton(
                 child: Text("Cancelar"),
                 onPressed: () {
                   Paygosdk.desfazOperacaoManual();
@@ -632,7 +637,7 @@ class _Paygo_activityState extends State<Paygo_activity> {
           child: AlertDialog(
             title: Text(paygo.mensagemRetorno),
             actions: [
-              FlatButton(
+              ElevatedButton(
                 child: Text("OK"),
                 onPressed: () {
                   Navigator.pop(context);
@@ -682,7 +687,7 @@ class _Paygo_activityState extends State<Paygo_activity> {
           child: AlertDialog(
             title: Text("Erro na Operacao"),
             actions: [
-              FlatButton(
+              ElevatedButton(
                 child: Text("OK"),
                 onPressed: () {
                   print('Clicou no DialogErro');
@@ -718,7 +723,7 @@ class _Paygo_activityState extends State<Paygo_activity> {
           child: AlertDialog(
             title: Text(titulo),
             actions: [
-              FlatButton(
+              ElevatedButton(
                 child: Text("Sim"),
                 onPressed: () async {
                   print('Clicou na impressão do comprovante');
@@ -726,7 +731,7 @@ class _Paygo_activityState extends State<Paygo_activity> {
                   Navigator.of(context).pop(true);
                 },
               ),
-              FlatButton(
+              ElevatedButton(
                 child: Text("Não"),
                 onPressed: () {
                   print('Clicou na NÃO impressão do comprovante');
@@ -762,7 +767,7 @@ class _Paygo_activityState extends State<Paygo_activity> {
           child: AlertDialog(
             title: Text("Transação Pendente"),
             actions: [
-              FlatButton(
+              ElevatedButton(
                 child: Text("Confirme"),
                 onPressed: () {
                   Paygosdk.confirmaOperacaoPendenteManual();
@@ -770,7 +775,7 @@ class _Paygo_activityState extends State<Paygo_activity> {
                   Navigator.of(context).pop(true);
                 },
               ),
-              FlatButton(
+              ElevatedButton(
                 child: Text("Cancelar"),
                 onPressed: () {
                   Paygosdk.desfazOperacaoPendente();

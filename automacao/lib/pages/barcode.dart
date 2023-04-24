@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-
 import 'package:tectoyexemplo/Utils/constants.dart';
 import 'package:tectoyexemplo/Widgets/appbar.dart';
-import 'package:tectoyexemplo/Widgets/button.dart';
 import 'package:tectoyexemplo/Widgets/item.dart';
 import 'package:tectoyexemplo/plugin/tectoysunmisdk.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class BarCode extends StatefulWidget {
   final String title;
@@ -260,18 +257,22 @@ class _BarCodeState extends State<BarCode> {
             decoration: InputDecoration(hintText: hintText),
           ),
           actions: <Widget>[
-            FlatButton(
-              color: Colors.red,
-              textColor: Colors.white,
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+                textStyle: TextStyle(color: Colors.white),
+              ),
               child: Text('CANCEL'),
               onPressed: () {
                 text_barcode = oldValue;
                 Navigator.pop(context);
               },
             ),
-            FlatButton(
-              color: Colors.green,
-              textColor: Colors.white,
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                textStyle: TextStyle(color: Colors.white),
+              ),
               child: Text('OK'),
               onPressed: () {
                 setState(() {
@@ -323,9 +324,11 @@ class _BarCodeState extends State<BarCode> {
             },
           ),
           actions: <Widget>[
-            FlatButton(
-              color: Colors.red,
-              textColor: Colors.white,
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+                textStyle: TextStyle(color: Colors.white),
+              ),
               child: Text('CANCEL'),
               onPressed: () {
                 setState(() {

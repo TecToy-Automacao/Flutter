@@ -5,11 +5,7 @@ import 'package:qr_flutter/qr_flutter.dart';
 // import 'package:qr_flutter/qr_flutter.dart';
 import 'package:tectoyexemplo/Utils/constants.dart';
 import 'package:tectoyexemplo/Widgets/appbar.dart';
-import 'package:tectoyexemplo/Widgets/button.dart';
-import 'package:tectoyexemplo/Widgets/inputdialog.dart';
 import 'package:tectoyexemplo/Widgets/item.dart';
-import 'package:tectoyexemplo/Widgets/showalertdialog.dart';
-import 'package:tectoyexemplo/pages/qrcode.dart';
 import 'package:tectoyexemplo/plugin/tectoysunmisdk.dart';
 // import 'package:bitmap/bitmap.dart';
 
@@ -235,9 +231,11 @@ class _QrCodeState extends State<QrCode> {
             decoration: InputDecoration(hintText: hintText),
           ),
           actions: <Widget>[
-            FlatButton(
-              color: Colors.red,
-              textColor: Colors.white,
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+                textStyle: TextStyle(color: Colors.white),
+              ),
               child: Text('CANCEL'),
               onPressed: () {
                 setState(() {
@@ -246,9 +244,11 @@ class _QrCodeState extends State<QrCode> {
                 });
               },
             ),
-            FlatButton(
-              color: Colors.green,
-              textColor: Colors.white,
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                textStyle: TextStyle(color: Colors.white),
+              ),
               child: Text('OK'),
               onPressed: () {
                 setState(() {
@@ -298,9 +298,11 @@ class _QrCodeState extends State<QrCode> {
             },
           ),
           actions: <Widget>[
-            FlatButton(
-              color: Colors.red,
-              textColor: Colors.white,
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+                textStyle: TextStyle(color: Colors.white),
+              ),
               child: Text('CANCEL'),
               onPressed: () {
                 setState(() {

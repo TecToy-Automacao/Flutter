@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tectoyexemplo/Utils/constants.dart';
 import 'package:tectoyexemplo/Widgets/appbar.dart';
@@ -176,9 +175,11 @@ class _Cancelar_activityState extends State<Cancelar_activity> {
             decoration: InputDecoration(hintText: hintText),
           ),
           actions: <Widget>[
-            FlatButton(
-              color: Colors.red,
-              textColor: Colors.white,
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+                textStyle: TextStyle(color: Colors.white),
+              ),
               child: Text('CANCEL'),
               onPressed: () {
                 setState(() {
@@ -195,9 +196,11 @@ class _Cancelar_activityState extends State<Cancelar_activity> {
                 });
               },
             ),
-            FlatButton(
-              color: Colors.green,
-              textColor: Colors.white,
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                textStyle: TextStyle(color: Colors.white),
+              ),
               child: Text('OK'),
               onPressed: () {
                 setState(() {

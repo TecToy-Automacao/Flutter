@@ -43,8 +43,8 @@ dependencies:
   lampsdk:
     path: plugin/lampsdk
     
-  paygosdk:
-    path: plugin/paygosdk
+  #paygosdk:
+    #path: plugin/paygosdk
 
 
   tectoysunmisdk:
