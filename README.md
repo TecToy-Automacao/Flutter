@@ -6,5 +6,4 @@ na linha 19:<br>
 &ensp;&ensp;&ensp;tecToy = TecToy(Dispositivo.V2_PRO, context)<br>
 Informar o equipamento utilizado - funciona para os equipamentos TecToy Automação: V2, V2Pro, D2 Mini, D2s, T2 Mini, T2s, K2 e K2 Mini.<br></p>
 
-<b>. Coletores</b> - Fonte de demonstração para uso da IT4R nos Coletores - L2s L2Ks para utilizarem o recurso de leitura de codigo de barrar 1D e 2D e leitura/escrita de NFC<br></p>
 <br>
