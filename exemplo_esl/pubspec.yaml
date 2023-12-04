@@ -1,0 +1,37 @@
+name: exemplo_esl
+description: A new Flutter project.
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.1.0-75.0.dev <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  #Armazenar token de login
+  shared_preferences: ^2.2.0
+  #Requisições http
+  http: ^1.1.0
+  #Decodificar token de login
+  jwt_decoder: ^2.0.1
+  #Formatação de números
+  intl: ^0.18.1
+  #Paginação
+  number_pagination: ^0.0.3+2
+  page_view_indicators: ^2.0.0
+  #Leitura de arquivos do celular
+  file_picker: ^5.3.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true

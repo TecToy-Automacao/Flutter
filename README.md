@@ -12,4 +12,9 @@ Observações: <br>
 &ensp;&ensp;- O plugin utilizado encontra-se disponivel na Play Store Google <br>
 &ensp;&ensp;- Disponivel o código fonte e o apk caso necessáro está em: /build/app/outputs/flutter-apk<br> </p>
 <br>
+<p><b>. exemplo_esl</b> - Aplicação de demonstração do uso dos comandos da API das etiquetas TECTOY. <br>
+Observações: <br>
+&ensp;&ensp;- Documentação está disponível aqui no GitHub, na pasta DOCs: https://github.com/TecToy-Automacao/Docs/blob/main/Documentacao_API_ESLs_Tectoy.pdf <br>
+</p>
+<br>
 <br>
